@@ -17,7 +17,7 @@ if( !$user ) {
 }else{
 	session_start();
 	$_SESSION["logado"] = true;
-	$_SESSION["nome"] = $user->nomeUsuario;
-	$_SESSION["email"] = $user->emailUsuario;
+	$_SESSION["nome"] = $user->nome;
+	$_SESSION["email"] = $user->email;
 	header("Location: ../logado.php");
 }

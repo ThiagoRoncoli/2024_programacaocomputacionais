@@ -1,27 +1,31 @@
 <?php
+include('clsConexao.php');
+
 
 class UsuarioDAO{
 
 
     public static function inserir($usuario){
-        $nome = $usuario->nomeUsuario;
-        $email = $usuario->emailUsuario;
-        $login = $usuario->loginUsuario;
-        $senha =  $usuario->senhaUsuario;
-        $celular = $usuario->telefoneCelular;
+        $id = $usuario->id;
+        $nome = $usuario->nome;
+        $email = $usuario->email;
+        $senha =  $usuario->senha;
+        $cargo = $usuario->cargo;
+        $ativo = $usuario->ativo;
+
         
-        $sql = "INSERT INTO usuario (nomeUsuario, emailUsuario, loginUsuario,
-        senhaUsuario, telefoneCelular, ativo) VALUES ('$nome', '$email', '$login',
-        '$senha','$celular', 'S');";
+        $sql = "INSERT INTO usuario (nome, email, senha,
+        cargo, ativo) VALUES ('$nome', '$email', '$senha',
+        '$cargo','$ativo', 'S');";
         $id = Conexao::executarComRetornoId($sql);
         return $id;
     }
     
     
-    public static function getUsuarioByLoginSenha($login, $senha){
-        $sql = "SELECT idUsuario, nomeUsuario, emailUsuario 
+    public static function getUsuarioByLoginSenha($email, $senha){
+        $sql = "SELECT id, nome, email
                 FROM usuario 
-                WHERE loginUsuario = '$login' AND senhaUsuario = '$senha' ";
+                WHERE email = '$email' AND senha = '$senha' ";
               
         $result = Conexao::consultar($sql);
             if (mysqli_num_rows($result) == 0){
@@ -35,22 +39,21 @@ class UsuarioDAO{
 
     //EDITAR
 public static function editar( $usuario, $id ){
-    $idUsuario = $id;
+    $id = $id;
     $nome = $usuario;
-    $sql = "UPDATE usuario SET nome = '$nome' WHERE id = $idUsuario ;" ;
+    $sql = "UPDATE usuario SET nome = '$nome' WHERE id = $id ;" ;
     Conexao::executar( $sql );
 }
 
 //EXCLUIR
-    public static function excluir($idUsuario){
-            $sql = "DELETE FROM usuario WHERE id = $idUsuario;";
+    public static function excluir($id){
+            $sql = "DELETE FROM usuario WHERE id = $id;";
             Conexao::executar($sql);
             }
 
     
 
 }
-
 
 
 ?>

@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.form__titulo{
+    color: aliceblue;
+    padding: 10px;
+    font-weight: 600;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    position: relative;
+}
+
+body{
+    background-color: brown;
+    height: 100vh;
+    display: flex;
+    position: relative;
+}
+
+label{
+    color: aliceblue;
+    margin: 10px 0;
+    padding: 10px;
+    
+}
+
+.form__botao{
+    display: flex;
+    border-radius: 10%;
+    margin: 10%;
+    display: center;
+    justify-content: center;
+}
+
+.form__botao__bt{
+    background-color: green ;
+    color: aliceblue;
+    font-size: medium;
+
+}
+
+input{
+    margin: 0 10px;
+    border-color: black;
+
+}
+
+footer{
+    background-color: black;
+    border: 0;
+    position: fixed;
+   
+}

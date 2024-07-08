@@ -1,13 +1,11 @@
-CREATE TABLE usuario (
-  idUsuario int(11) NOT NULL,
-  nomeUsuario varchar(255) NOT NULL,
-  emailUsuario varchar(255) NOT NULL,
-  loginUsuario varchar(255) NOT NULL,
-  senhaUsuario varchar(255) NOT NULL,
-  dataCadastro datetime DEFAULT NULL,
-  telefoneCelular varchar(45) DEFAULT NULL,
-  ativo enum('S','N') NOT NULL DEFAULT 'S',
-)
+CREATE TABLE usuario(
+id INT PRIMARY KEY,
+nome VARCHAR(100) DEFAULT '',
+email VARCHAR(100) NOT NULL,
+senha VARCHAR(100) NOT NULL,
+cargo ENUM('usuario', 'admin') NOT NULL DEFAULT 'usuario',
+ativo ENUM('Ativado', 'Desativado') NOT NULL DEFAULT 'Ativado'
+);
 
-INSERT INTO usuario (idUsuario, nomeUsuario, emailUsuario, loginUsuario, senhaUsuario, dataCadastro, 
-telefoneCelular, ativo, idPerfil) VALUES ();
+INSERT INTO usuario (id, nome, email, loginUsuario, senha, cargo, 
+ativo) VALUES ();

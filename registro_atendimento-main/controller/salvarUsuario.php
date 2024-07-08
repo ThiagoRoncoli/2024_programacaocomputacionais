@@ -7,22 +7,16 @@ include_once("../model/clsUsuario.php");
 //INSERIR USUARIO
 
 if(isset($_REQUEST["inserir"])){
-    $nome = $_POST["txtNome"];
-    $email = $_POST["txtEmail"];
-    $login = $_POST["txtLogin"];
-    $senha = $_POST["txtSenha"];
-    $senha = md5($senha);
-    $celular = $_POST["txtCelular"];
+    $nome = $_POST["nomeUsuario"];
+    $email = $_POST["emailUsuario"];
+    $senha =  $_POST["senha"];
+    $cargo = $_POST["cargoUsuario"];
+    $ativo = $_POST["ativo"];
     
     if(strlen($nome) == 0 ){
         header("Location: ../cadastra.php?nomeVazio");
     }else{
-        $usuario = new Usuario();
-        $usuario->nomeUsuario = $nome;
-        $usuario->emailUsuario = $email;
-        $usuario->loginUsuario = $login;
-        $usuario->senhaUsuario = $senha;
-        $usuario->telefoneCelular = $celular;
+        $usuario = new Usuario($nome, $email, $senha, $cargo, $ativo);
         UsuarioDAO:: inserir($usuario);
         header("Location: ../cadastra.php?nome=$nome");
     }
@@ -40,7 +34,7 @@ if(isset($_REQUEST["excluir"]) && isset($_REQUEST["id"])){
 // EDITAR USUARIO
 
 if( isset( $_REQUEST["editar"] ) &&  isset( $_REQUEST["id"] ) ){
-    $nome = $_POST["txtNome"];
+    $nome = $_POST["nome"];
     $id = $_REQUEST["id"];
     UsuarioDAO::editar( $nome, $id );
     header( "Location: ../cadastra.php?usuarioEditado");

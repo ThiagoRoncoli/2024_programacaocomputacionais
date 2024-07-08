@@ -3,7 +3,7 @@ class Conexao {
 
 //ABRIR
     private static function abrir(){
-        $banco = "projeto_a3";
+        $banco = "atendimentos";
         $local = "localhost";
         $user = "root";
         $senha = "";
@@ -47,9 +47,9 @@ class Conexao {
         $id = 0;
         if ($conn){
             mysqli_query($conn, $sql);
-            $id = mysqli_insert_id($conn);
+            //$id = mysqli_insert_id($conn);
             self::fechar($conn);
             }
-        return $id;
+        //return $id;
     }
 }

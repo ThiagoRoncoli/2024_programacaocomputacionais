@@ -2,18 +2,17 @@
 
     class Usuario{
 
-        public $idUsuario, $nomeUsuario, $emailUsuario, 
-        $loginUsuario, $senhaUsuario, $telefoneCelular, $ativo;
+        private $id, $nome, $email, 
+        $senha, $cargo, $ativo;
 
-        public function __construct($idUsuario = NULL, $nomeUsuario = NULL, $emailUsuario = NULL, 
-        $loginUsuario = NULL, $senhaUsuario = NULL, $telefoneCelular = NULL, $ativo = NULL){
+        public function __construct($nome = NULL, $email = NULL, 
+        $senha = NULL, $cargo = NULL, $ativo = NULL){
+//o id eu posso tirar talvez//
 
-            $this->idUsuario = $idUsuario;
-            $this->nomeUsuario = $nomeUsuario;
-            $this->emailUsuario = $emailUsuario;
-            $this->loginUsuario = $loginUsuario; 
-            $this->senhaUsuario = $senhaUsuario;
-            $this->telefoneCelular = $telefoneCelular; 
+            $this->nome = $nome;
+            $this->email = $email;
+            $this->senha = $senha;
+            $this->cargo = $cargo; 
             $this->ativo = $ativo;             
         }
 

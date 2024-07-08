@@ -1,13 +1,11 @@
-CREATE TABLE atendimento (
-  idAtendimento int(11) NOT NULL,
-  idFormaAtendimento int(11) NOT NULL,
-  idPerguntaPublico int(11) NOT NULL,
-  idUsuario int(11) NOT NULL,
-  dataCadastro datetime NOT NULL,
-  ativo('S','N') enum('S','N') NOT NULL DEFAULT 'S',
-  respostaAtendimento text NOT NULL
+CREATE TABLE atendimento(
+id INT PRIMARY KEY,
+id_solicitante INT NOT NULL,
+tipo VARCHAR(255) NOT NULL,
+informacao VARCHAR(255) DEFAULT '',
+data_registro DATETIME NOT NULL,
+FOREIGN KEY (id_solicitante) REFERENCES solicitante(id)    
 );
 
-INSERT INTO atendimento(idAtendimento, idFormaAtendimento, idPerguntaPublico, idUsuario, dataCadastro, ativo
-respostaAtendimento) VALUES();
+INSERT INTO atendimento(tipo, informacao, data_registro) VALUES();
 
